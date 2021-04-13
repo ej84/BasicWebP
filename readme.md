@@ -8,3 +8,11 @@
 http://localhost:8000
 
 http://localhost:8000/api/v1/cities
+
+
+## Postman Screenshots for Crud:
+![postman get](img/postmanCities.PNG)
+![postman delete](img/postmanDeleteCity.PNG)
+![postman getById](img/postmanGetById.PNG)
+![postman create](img/postmanCityCreate.PNG)
+![postman Update](img/postmanUpdate.PNG)
