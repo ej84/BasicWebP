@@ -23,7 +23,7 @@ exports.create = function(req, res) {
         City.create(new_employee, function(err, employee) {
             if (err)
                 res.send(err);
-            res.json({error:false,message:"Employee added successfully!",data:employee});
+            res.json({error:false,message:"City added successfully!",data:employee});
         });
     }
 };
@@ -45,7 +45,7 @@ exports.update = function(req, res) {
         City.update(req.params.id, new City(req.body), function(err, employee) {
             if (err)
                 res.send(err);
-            res.json({ error:false, message: 'Employee successfully updated' });
+            res.json({ error:false, message: 'City successfully updated' });
         });
     }
 
@@ -56,6 +56,6 @@ exports.delete = function(req, res) {
     City.delete( req.params.id, function(err, employee) {
         if (err)
             res.send(err);
-        res.json({ error:false, message: 'Employee successfully deleted' });
+        res.json({ error:false, message: 'City successfully deleted' });
     });
 };
