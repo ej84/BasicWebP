@@ -14,26 +14,26 @@ exports.findAll = function(req, res) {
 
 
 exports.create = function(req, res) {
-    const new_employee = new City(req.body);
+    const new_city = new City(req.body);
 
     //handles null error
     if(req.body.constructor === Object && Object.keys(req.body).length === 0){
         res.status(400).send({ error:true, message: 'Please provide all required field' });
     }else{
-        City.create(new_employee, function(err, employee) {
+        City.create(new_city, function(err, city) {
             if (err)
                 res.send(err);
-            res.json({error:false,message:"City added successfully!",data:employee});
+            res.json({error:false,message:"City added successfully!",data:city});
         });
     }
 };
 
 
 exports.findById = function(req, res) {
-    City.findById(req.params.id, function(err, employee) {
+    City.findById(req.params.id, function(err, city) {
         if (err)
             res.send(err);
-        res.json(employee);
+        res.json(city);
     });
 };
 
@@ -42,7 +42,7 @@ exports.update = function(req, res) {
     if(req.body.constructor === Object && Object.keys(req.body).length === 0){
         res.status(400).send({ error:true, message: 'Please provide all required field' });
     }else{
-        City.update(req.params.id, new City(req.body), function(err, employee) {
+        City.update(req.params.id, new City(req.body), function(err, city) {
             if (err)
                 res.send(err);
             res.json({ error:false, message: 'City successfully updated' });
@@ -53,7 +53,7 @@ exports.update = function(req, res) {
 
 
 exports.delete = function(req, res) {
-    City.delete( req.params.id, function(err, employee) {
+    City.delete( req.params.id, function(err, city) {
         if (err)
             res.send(err);
         res.json({ error:false, message: 'City successfully deleted' });
