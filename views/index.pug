@@ -2,15 +2,15 @@ extends layout
 
 block layout-content
   div.View.WelcomeView
-    h1.Banner WHATABYTE
+    h1.Banner BasicWebP
     div.Message
       div.Title
         h3 Making the Best
-        h1 Food For Devs
+        h1 Devs for Web
       span.Details Access the WHATABYTE Team Portal
     div.NavButtons
       if isAuthenticated
-        a(href="/user")
+        a(href="/http://localhost:8000/index.html")
           div.NavButton Just dive in!
       else
         a(href="/login")
