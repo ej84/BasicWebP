@@ -1,7 +1,3 @@
-import TestJS from "./TestJs.js";
-import ConsoleLogIt from "./ConsoleLogIt.js";
-import getJSON from "./getJSON";
-
 // index.js
 
 /**
@@ -17,6 +13,8 @@ const Auth0Strategy = require("passport-auth0");
 
 require("dotenv").config();
 
+const authRouter = require("./auth");
+
 /**
  * App Variables
  */
@@ -25,7 +23,7 @@ const app = express();
 const port = process.env.PORT || "8000";
 
 /**
- * Session Configuration (New!)
+ * Session Configuration
  */
 
 const session = {
@@ -40,8 +38,14 @@ if (app.get("env") === "production") {
     session.cookie.secure = true;
 }
 
+// index.js
+
 /**
- * Passport Configuration (New!)
+ * Passport Configuration
+ */
+
+/**
+ * Passport Configuration
  */
 
 const strategy = new Auth0Strategy(
@@ -84,6 +88,47 @@ passport.serializeUser((user, done) => {
 
 passport.deserializeUser((user, done) => {
     done(null, user);
+});
+
+// Creating custom middleware with Express
+app.use((req, res, next) => {
+    res.locals.isAuthenticated = req.isAuthenticated();
+    next();
+});
+
+// Router mounting
+app.use("/", authRouter);
+
+/**
+ * Routes Definitions
+ */
+
+const secured = (req, res, next) => {
+    if (req.user) {
+        return next();
+    }
+    req.session.returnTo = req.originalUrl;
+    res.redirect("/login");
+};
+
+app.get("/", (req, res) => {
+    res.render("index", { title: "Home" });
+});
+
+app.get("/user", secured, (req, res, next) => {
+    const { _raw, _json, ...userProfile } = req.user;
+    res.render("user", {
+        title: "Profile",
+        userProfile: userProfile
+    });
+});
+
+/**
+ * Server Activation
+ */
+
+app.listen(port, () => {
+    console.log(`Listening to requests on http://localhost:${port}`);
 });
 
 
