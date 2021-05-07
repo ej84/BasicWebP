@@ -11,7 +11,7 @@ app.use(express.static('docs'));
 
 
 // Setup server port
-const port = process.env.PORT || 5000;
+//const port = process.env.PORT || 5000;
 
 // parse requests of content-type - application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true }))
@@ -27,11 +27,11 @@ const citiesRoutes = require('./routes/cities.routes')
 // using as middleware
 app.use('/api/v1/cities', citiesRoutes)
 
-app.set('port', process.env.PORT || 8000);
+app.set('port', process.env.PORT || 5000);
 app.set('ip', process.env.NODEJS_IP || '127.0.0.1');
 
 app.listen(app.get('port'), function() {
     console.log('%s: Node server started on %s ...', Date(Date.now()), app.get('port'));
-    open("http://localhost:8000");
+    open("http://localhost:5000");
 
 });

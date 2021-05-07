@@ -136,7 +136,7 @@ __webpack_require__.r(__webpack_exports__);
     console.log(data);
 });
 
-(0,_getJSON__WEBPACK_IMPORTED_MODULE_2__.default)('http://localhost:8000/api/v1/cities',
+(0,_getJSON__WEBPACK_IMPORTED_MODULE_2__.default)('http://localhost:5000/api/v1/cities',
     function(err, records) {
         if (err !== null) {
             alert('Something went wrong: ' + err);

@@ -8,7 +8,7 @@ getJSON("", function (data) {
     console.log(data);
 });
 
-getJSON('http://localhost:8000/api/v1/cities',
+getJSON('http://localhost:5000/api/v1/cities',
     function(err, records) {
         if (err !== null) {
             alert('Something went wrong: ' + err);
