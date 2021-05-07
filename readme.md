@@ -1,9 +1,11 @@
 # Basic WebPack Works
 ## IS 219 - Richard Jeong
-## Web Browser for table and console
-![webDB request output](screenshots/webstormDB.PNG)
+## Basic Web Pack with auth0
+![auth0(1)](screenshots/login.PNG)
 ## api cities page
-![api request output](screenshots/apiCities.PNG)
+![auth0(2)](screenshots/after_login.PNG)
+![database from authentication](screenshots/database_auth0.PNG)
+
 ## Link
 http://localhost:8000
 
