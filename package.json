@@ -5,9 +5,7 @@
   "main": "server/app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server/app.js",
-    "dev": "nodemon ./index.js",
-    "ui": "browser-sync start --config bs-config.js"
+    "start": "node server/app.js"
   },
   "keywords": [],
   "author": "",
@@ -15,9 +13,11 @@
   "dependencies": {
     "body-parser": "^1.19.0",
     "browser-sync": "^2.26.14",
+    "cookie-parser": "^1.4.5",
     "cors": "^2.8.5",
     "dotenv": "^9.0.0",
     "express": "^4.17.1",
+    "express-handlebars": "^5.3.2",
     "express-openid-connect": "^2.3.1",
     "express-session": "^1.17.1",
     "mysql": "^2.18.1",
