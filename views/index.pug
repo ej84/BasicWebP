@@ -7,11 +7,13 @@ block layout-content
       div.Title
         h3 Making the Best
         h1 Devs for Web
-      span.Details Access the WHATABYTE Team Portal
+      span.Details Access the Basic WebPack Team Portal
     div.NavButtons
       if isAuthenticated
         a(href="http://localhost:5000/index.html")
-          div.NavButton Just dive in!
+          div.NavButton Go to Database!
+        a(href="/logout")
+          div.NavButton Log out
       else
         a(href="/login")
           div.NavButton Log in
