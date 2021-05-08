@@ -33,8 +33,6 @@ const generateAuthToken = () => {
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json())
 
-const citiesRoutes = require('./server/routes/cities.routes')
-
 // To parse cookies from the HTTP Request
 app.use(cookieParser());
 

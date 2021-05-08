@@ -23,7 +23,7 @@ app.use(bodyParser.json())
 
 // Require employee routes
 const citiesRoutes = require('./routes/cities.routes')
-
+/**
 // using as middleware
 app.use('/api/v1/cities', citiesRoutes)
 
@@ -34,4 +34,4 @@ app.listen(app.get('port'), function() {
     console.log('%s: Node server started on %s ...', Date(Date.now()), app.get('port'));
     open("http://localhost:5000");
 
-});
+});**/
