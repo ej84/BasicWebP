@@ -137,6 +137,7 @@ app.post('/register', (req, res) => {
 app.get('/protected', (req, res) => {
     if (req.user) {
         res.render('protected');
+
     } else {
         res.render('login', {
             message: 'Please login to continue',
