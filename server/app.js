@@ -22,6 +22,7 @@ app.use(bodyParser.json())
 // define a root route
 
 // Require employee routes
+/**
 const citiesRoutes = require('./routes/cities.routes')
 
 // using as middleware
@@ -35,3 +36,4 @@ app.listen(app.get('port'), function() {
     open("http://localhost:5000");
 
 });
+ **/

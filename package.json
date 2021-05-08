@@ -2,10 +2,10 @@
   "name": "basicwebpack",
   "version": "1.0.0",
   "description": "",
-  "main": "server/app.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server/app.js"
+    "start": "node app.js"
   },
   "keywords": [],
   "author": "",
