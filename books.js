@@ -1,16 +1,29 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const jwt = require('jsonwebtoken');
-const accessTokenSecret = 'youraccesstokensecret';
-
-
 const app = express();
+const accessTokenSecret = 'youraccesstokensecret';
 
 app.use(bodyParser.json());
 
-app.listen(4000, () => {
-    console.log('Books service started on port 4000');
-});
+const authenticateJWT = (req, res, next) => {
+    const authHeader = req.headers.authorization;
+
+    if (authHeader) {
+        const token = authHeader.split(' ')[1];
+
+        jwt.verify(token, accessTokenSecret, (err, user) => {
+            if (err) {
+                return res.sendStatus(403);
+            }
+
+            req.user = user;
+            next();
+        });
+    } else {
+        res.sendStatus(401);
+    }
+};
 
 const books = [
     {
@@ -43,22 +56,21 @@ app.get('/books', (req, res) => {
     res.json(books);
 });
 
-const authenticateJWT = (req, res, next) => {
-    const authHeader = req.headers.authorization;
 
-    if (authHeader) {
-        const token = authHeader.split(' ')[1];
+app.post('/books', authenticateJWT, (req, res) => {
+    const { role } = req.user;
 
-        jwt.verify(token, accessTokenSecret, (err, user) => {
-            if (err) {
-                return res.sendStatus(403);
-            }
-
-            req.user = user;
-            next();
-        });
-    } else {
-        res.sendStatus(401);
+    if (role !== 'admin') {
+        return res.sendStatus(403);
     }
-};
 
+
+    const book = req.body;
+    books.push(book);
+
+    res.send('Book added successfully');
+});
+
+app.listen(4000, () => {
+    console.log('Books service started on port 4000');
+});
