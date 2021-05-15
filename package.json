@@ -1,7 +1,7 @@
 {
   "name": "basicwebpack",
   "version": "1.0.0",
-  "description": "",
+  "description": "![auth0(1)](screenshots/login.PNG)\r ## api cities page\r ![auth0(2)](screenshots/after_login.PNG)\r ![database from authentication](screenshots/database_auth0.PNG)",
   "main": "server/app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -20,6 +20,7 @@
     "express": "^4.17.1",
     "express-openid-connect": "^2.3.1",
     "express-session": "^1.17.1",
+    "jsonwebtoken": "^8.5.1",
     "mysql": "^2.18.1",
     "open": "^8.0.4",
     "passport": "^0.4.1",
@@ -33,5 +34,16 @@
     "webpack": "^5.28.0",
     "webpack-cli": "^4.5.0",
     "webpack-dev-server": "^3.11.2"
-  }
+  },
+  "directories": {
+    "doc": "docs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ej84/BasicWebP.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ej84/BasicWebP/issues"
+  },
+  "homepage": "https://github.com/ej84/BasicWebP#readme"
 }
